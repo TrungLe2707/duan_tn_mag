@@ -28,10 +28,6 @@
             <button class="nav-dot"></button>
         </div>
     </div>
-
-
-    {{-- bắt đầu slider --}}
-
     {{-- kết thúc slider --}}
 
     <div class="introduce">

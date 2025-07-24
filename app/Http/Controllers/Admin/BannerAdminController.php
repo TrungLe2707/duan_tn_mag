@@ -35,7 +35,7 @@ class BannerAdminController extends Controller
 
         Banners::create($data);
 
-        return redirect()->route('admin.banners.index')->with('success', 'Thêm banner thành công!');
+        return redirect()->route('admin.banners.index')->with('success', 'Thêm thành công!');
     }
 
     public function update(Request $request, $id)
@@ -66,7 +66,7 @@ class BannerAdminController extends Controller
 
         $banner->update($data);
 
-        return redirect()->route('admin.banners.index')->with('success', 'Cập nhật banner thành công!');
+        return redirect()->route('admin.banners.index')->with('success', 'Cập nhật thành công!');
     }
 
     public function destroy($id)
@@ -80,6 +80,6 @@ class BannerAdminController extends Controller
 
         $banner->delete();
 
-        return redirect()->route('admin.banners.index')->with('success', 'Xoá banner thành công!');
+        return redirect()->route('admin.banners.index')->with('success', 'Xoá thành công!');
     }
 }

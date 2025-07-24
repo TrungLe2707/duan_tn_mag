@@ -17,7 +17,7 @@
                 <th>CTA</th>
                 <th>Trạng thái</th>
                 <th>Thứ tự</th>
-                <th>Hành động</th>
+                <th>Thao tác</th>
             </tr>
         </thead>
         <tbody>
