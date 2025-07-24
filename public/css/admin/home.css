@@ -1,0 +1,832 @@
+:root {
+    --primary-color: #4f46e5;
+    --secondary-color: #f9fafb;
+    --accent-color: #f43f5e;
+    --success-color: #22c55e;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    --dark-color: #1f2a44;
+    --light-color: #ffffff;
+    --border-color: #e5e7eb;
+    --text-color: #374151;
+    --text-muted: #6b7280;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        sans-serif;
+}
+
+.aindex-body {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.aindex-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.aindex-sidebar {
+    width: 280px;
+    background-color: var(--light-color);
+    padding: 1rem 0;
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    transition: width 0.3s ease;
+}
+
+.aindex-sidebar-header {
+    padding: 0 1rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+}
+
+.aindex-sidebar-header h2 {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.aindex-sidebar-header h2 i {
+    font-size: 1.5rem;
+}
+
+.aindex-sidebar-section {
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+}
+
+.aindex-sidebar-section h3 {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.aindex-sidebar-item {
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.15rem;
+    transition: all 0.2s ease;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.aindex-sidebar-item i {
+    width: 1.5rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.aindex-sidebar-item:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    transform: translateX(0.25rem);
+}
+
+.aindex-sidebar-item.aindex-active {
+    background-color: rgba(79, 70, 229, 0.1);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.aindex-main-content {
+    flex: 1;
+    padding: 1.5rem;
+    background-color: var(--secondary-color);
+}
+
+.aindex-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.aindex-search-bar {
+    display: flex;
+    align-items: center;
+    background-color: var(--light-color);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+}
+
+.aindex-search-bar:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.aindex-search-bar input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    background: transparent;
+}
+
+.aindex-search-bar i {
+    color: var(--text-muted);
+    margin-right: 0.5rem;
+}
+
+.aindex-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.aindex-notification-bell {
+    position: relative;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.aindex-notification-bell:hover {
+    color: var(--primary-color);
+}
+
+.aindex-profile-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.aindex-dashboard-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.aindex-dashboard-subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.aindex-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.aindex-metric-card {
+    background-color: var(--light-color);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.aindex-metric-card:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: var(--shadow-md);
+}
+
+.aindex-metric-title {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.aindex-metric-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 0.15rem;
+}
+
+.aindex-metric-change {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.aindex-metric-change.aindex-up {
+    color: var(--success-color);
+}
+
+.aindex-metric-change.aindex-down {
+    color: var(--danger-color);
+}
+
+.aindex-metric-change {
+    margin-right: 0.25rem;
+}
+
+/* Sửa lỗi: Điều chỉnh grid-template-columns để phù hợp với bố cục */
+.aindex-chart-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Giữ tỷ lệ 2:1 cho biểu đồ và sản phẩm */
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.aindex-chart-card {
+    background-color: var(--light-color);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.aindex-chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.aindex-chart-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.aindex-chart-period {
+    background-color: var(--secondary-color);
+    border-radius: 1rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.aindex-chart-container {
+    height: 320px;
+    position: relative;
+}
+
+.aindex-top-products {
+    background-color: var(--light-color);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.aindex-product-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease;
+}
+
+.aindex-product-item:hover {
+    background-color: var(--secondary-color);
+}
+
+.aindex-product-item:last-child {
+    border-bottom: none;
+}
+
+.aindex-product-image {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--border-color);
+    margin-right: 1rem;
+}
+
+.aindex-product-info {
+    flex: 1;
+}
+
+.aindex-product-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+.aindex-product-category {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.aindex-product-stats {
+    text-align: right;
+}
+
+.aindex-product-price {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+.aindex-product-sales {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.aindex-data-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.aindex-data-card {
+    background-color: var(--light-color);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.aindex-data-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.aindex-data-action:hover {
+    color: var(--accent-color);
+}
+
+.aindex-data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.aindex-data-table th {
+    text-align: left;
+    padding: 0.75rem 0;
+    font-weight: 500;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.aindex-data-table td {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.85rem;
+}
+
+.aindex-data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.aindex-comment-user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.aindex-comment-avatar {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    margin-right: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.aindex-comment-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.aindex-comment-content {
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+}
+
+.aindex-comment-time {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.aindex-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.aindex-btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.aindex-btn-primary:hover {
+    background-color: #4338ca;
+}
+
+.aindex-btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.aindex-btn-outline:hover {
+    background-color: var(--secondary-color);
+}
+
+.aindex-status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.aindex-status-active {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: var(--success-color);
+}
+
+.aindex-status-inactive {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--danger-color);
+}
+
+/* Modal Styles */
+.aindex-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.aindex-modal-content {
+    background-color: var(--light-color);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: var(--shadow-md);
+}
+
+.aindex-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.aindex-modal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.aindex-modal-close {
+    cursor: pointer;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+}
+
+.aindex-modal-close:hover {
+    color: var(--primary-color);
+}
+
+.aindex-modal-form-group {
+    margin-bottom: 0.75rem;
+}
+
+.aindex-modal-form-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.aindex-modal-form-group input,
+.aindex-modal-form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.aindex-modal-form-group input:focus,
+.aindex-modal-form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+@media (max-width: 1024px) {
+    .aindex-sidebar {
+        width: 80px;
+    }
+
+    .aindex-sidebar-header h2 span,
+    .aindex-sidebar-item span,
+    .aindex-sidebar-section h3 {
+        display: none;
+    }
+
+    .aindex-sidebar-item {
+        justify-content: center;
+    }
+
+    .aindex-chart-section {
+        grid-template-columns: 1fr; /* Đảm bảo một cột trên màn hình nhỏ */
+    }
+
+    .aindex-data-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .aindex-container {
+        flex-direction: column;
+    }
+
+    .aindex-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .aindex-main-content {
+        padding: 0.75rem;
+    }
+
+    .aindex-search-bar {
+        max-width: 100%;
+    }
+}
+
+.aindex-up {
+    color: green;
+}
+.aindex-down {
+    color: red;
+}
+.aindex-chart-container {
+    height: 300px;
+    position: relative;
+}
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+
+
+/* Phần phản hồi bình luận */
+.aindex-comment-replies {
+    margin-top: 15px;
+    padding-left: 20px;
+    border-left: 2px solid #eee;
+}
+
+.aindex-comment-reply {
+    margin-bottom: 12px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+.aindex-reply-admin {
+    background-color: #e6f7ff;
+    border-left: 2px solid #1890ff;
+}
+
+.aindex-reply-user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.aindex-reply-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    margin-right: 8px;
+}
+
+.aindex-reply-admin .aindex-reply-avatar {
+    background-color: #1890ff;
+}
+
+.aindex-reply-name {
+    font-weight: 500;
+}
+
+.aindex-reply-content {
+    margin-left: 32px;
+    color: #333;
+}
+
+.aindex-reply-time {
+    margin-left: 32px;
+    font-size: 12px;
+    color: #888;
+}
+/* Modal Styles */
+.aindex-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.aindex-modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.aindex-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.aindex-modal-title {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.aindex-modal-close {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.aindex-modal-close:hover {
+    color: #000;
+}
+
+.aindex-modal-form-group {
+    margin-bottom: 15px;
+}
+
+.aindex-modal-form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.aindex-modal-form-group input,
+.aindex-modal-form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.aindex-modal-form-group textarea {
+    resize: vertical;
+}
+/* Nút phản hồi cho từng reply */
+.aindex-reply-btn {
+    margin-top: 8px;
+    padding: 4px 8px;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.aindex-reply-btn:hover {
+    background: #e0e0e0;
+}
+
+.aindex-reply-admin .aindex-reply-btn {
+    background: #e6f7ff;
+    border-color: #bae7ff;
+}
+/* Container chính */
+.aindex-data-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    background: white;
+    overflow: hidden; /* Ẩn phần tràn ra ngoài */
+}
+
+/* Bảng dữ liệu */
+.aindex-data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Phần thân bảng - thêm scroll */
+.aindex-data-table tbody {
+    display: block;
+    max-height: 500px; /* Chiều cao tối đa trước khi xuất hiện scroll */
+    overflow-y: auto; /* Thêm scroll dọc khi cần */
+}
+
+/* Các dòng trong bảng */
+.aindex-data-table tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+/* Ô chứa nội dung bình luận */
+.aindex-data-table td {
+    padding: 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Phần phản hồi con */
+.aindex-comment-replies {
+    margin-top: 12px;
+    padding-left: 16px;
+    border-left: 2px solid #eaeaea;
+    max-height: 300px; /* Giới hạn chiều cao phần phản hồi */
+    overflow-y: auto; /* Thêm scroll nếu cần */
+}
+
+/* Tùy chỉnh thanh scroll */
+.aindex-data-table tbody::-webkit-scrollbar,
+.aindex-comment-replies::-webkit-scrollbar {
+    width: 6px;
+}
+
+.aindex-data-table tbody::-webkit-scrollbar-track,
+.aindex-comment-replies::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.aindex-data-table tbody::-webkit-scrollbar-thumb,
+.aindex-comment-replies::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.aindex-data-table tbody::-webkit-scrollbar-thumb:hover,
+.aindex-comment-replies::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}

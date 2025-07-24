@@ -1,0 +1,234 @@
+/* Font và màu sắc cơ bản */
+:root {
+  --about-primary-color: #2c3e50;
+  --about-secondary-color: #e74c3c;
+  --about-accent-color: #3498db;
+  --about-light-color: #f9f9f9;
+  --about-dark-color: #333;
+  --about-text-color: #444;
+  --about-border-radius: 8px;
+  --about-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --about-transition: all 0.3s ease;
+}
+
+.about_sec, .about_hero {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.7;
+  color: var(--about-text-color);
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+.about_hero {
+ background-image: linear-gradient(rgba(0, 0, 0, 0.352), rgba(0, 0, 0, 0.457)), url('../img/team.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.about_hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.about_hero h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1.5s ease;
+}
+
+/* Main sections */
+.about_sec {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  padding: 40px;
+  background: white;
+  border-radius: var(--about-border-radius);
+  box-shadow: var(--about-box-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: var(--about-transition);
+}
+
+.about_sec:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.about_sec h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--about-primary-color);
+  font-size: 2.2rem;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.about_sec h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--about-secondary-color);
+}
+
+.about_sec p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* Grid layout */
+.about_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* Cards */
+.about_card {
+  background: white;
+  border-radius: var(--about-border-radius);
+  padding: 30px;
+  box-shadow: var(--about-box-shadow);
+  transition: var(--about-transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-top: 4px solid var(--about-accent-color);
+}
+
+.about_card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.about_card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 5px solid var(--about-light-color);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about_card h3 {
+  color: var(--about-primary-color);
+  margin: 15px 0;
+  font-size: 1.4rem;
+}
+
+.about_card p {
+  text-align: center;
+  margin: 0;
+}
+
+/* Style for new content sections */
+.about_sec .philosophy-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.about_sec .philosophy-card {
+  background: white;
+  border-radius: var(--about-border-radius);
+  padding: 30px;
+  box-shadow: var(--about-box-shadow);
+  transition: var(--about-transition);
+  border-left: 4px solid var(--about-accent-color);
+}
+
+.about_sec .philosophy-card h3 {
+  color: var(--about-primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.about_sec .philosophy-card h3::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--about-secondary-color);
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.about_sec .philosophy-card p {
+  margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .about_hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .about_sec {
+    padding: 30px 20px;
+    margin-bottom: 40px;
+  }
+
+  .about_grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
+.philosophy-image {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+
+    .philosophy-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .philosophy-image img:hover {
+        transform: scale(1.05);
+    }

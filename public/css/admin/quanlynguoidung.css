@@ -1,0 +1,476 @@
+      :root {
+        --primary-color: #4f46e5;
+        --danger-color: #ef4444;
+        --success-color: #22c55e;
+        --secondary-color: #f9fafb;
+        --light-color: #ffffff;
+        --border-color: #e5e7eb;
+        --text-color: #374151;
+        --text-muted: #6b7280;
+        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+      body {
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+      }
+      .ausermanagement-container {
+        display: flex;
+        min-height: 100vh;
+      }
+      .ausermanagement-sidebar {
+        width: 280px;
+        background-color: var(--light-color);
+        padding: 1.5rem 0;
+        box-shadow: var(--shadow-sm);
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        transition: width 0.3s ease;
+      }
+      .ausermanagement-sidebar-header {
+        padding: 0 1.5rem 1rem;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 1rem;
+      }
+      .ausermanagement-sidebar-header h2 {
+        color: var(--primary-color);
+        font-size: 1.25rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .ausermanagement-sidebar-header h2 i {
+        font-size: 1.5rem;
+      }
+      .ausermanagement-sidebar-section {
+        margin-bottom: 1.5rem;
+        padding: 0 1.5rem;
+      }
+      .ausermanagement-sidebar-section h3 {
+        color: var(--text-muted);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+      }
+      .ausermanagement-sidebar-item {
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        border-radius: 0.5rem;
+        margin-bottom: 0.25rem;
+        transition: all 0.2s ease;
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .ausermanagement-sidebar-item i {
+        width: 1.5rem;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .ausermanagement-sidebar-item:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        transform: translateX(0.25rem);
+      }
+      .ausermanagement-sidebar-item.ausermanagement-active {
+        background-color: rgba(79, 70, 229, 0.1);
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+      .ausermanagement-main-content {
+        flex: 1;
+        padding: 1.5rem;
+        background-color: var(--secondary-color);
+      }
+      .ausermanagement-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .ausermanagement-search-bar {
+        display: flex;
+        align-items: center;
+        background-color: var(--light-color);
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        max-width: 400px;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.2s ease;
+      }
+      .ausermanagement-search-bar:hover {
+        box-shadow: var(--shadow-md);
+      }
+      .ausermanagement-search-bar input {
+        border: none;
+        outline: none;
+        flex: 1;
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        background: transparent;
+      }
+      .ausermanagement-search-bar i {
+        color: var(--text-muted);
+        margin-right: 0.5rem;
+      }
+      .ausermanagement-user-profile {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .ausermanagement-notification-bell {
+        position: relative;
+        font-size: 1.25rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: color 0.2s ease;
+      }
+      .ausermanagement-notification-bell:hover {
+        color: var(--primary-color);
+      }
+      .ausermanagement-notification-bell::after {
+        content: "3";
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: var(--danger-color);
+        color: white;
+        border-radius: 50%;
+        font-size: 0.7rem;
+        width: 1rem;
+        height: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .ausermanagement-profile-avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        color: white;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+      }
+      .ausermanagement-page-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--text-color);
+        margin-bottom: 0.5rem;
+      }
+      .ausermanagement-page-subtitle {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+      }
+      .ausermanagement-filter-bar {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+      }
+      .ausermanagement-filter-select {
+        padding: 0.5rem;
+        border-radius: 0.375rem;
+        border: 1px solid var(--border-color);
+        background: var(--light-color);
+        font-size: 0.85rem;
+      }
+      .ausermanagement-data-card {
+        background-color: var(--light-color);
+        border-radius: 0.75rem;
+        padding: 1rem;
+        box-shadow: var(--shadow-sm);
+      }
+      .ausermanagement-data-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .ausermanagement-data-table th {
+        text-align: left;
+        padding: 0.75rem 1rem;
+        font-weight: 500;
+        color: var(--text-muted);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .ausermanagement-data-table td {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid var(--border-color);
+        font-size: 0.85rem;
+      }
+      .ausermanagement-data-table tr:last-child td {
+        border-bottom: none;
+      }
+      .ausermanagement-btn {
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        margin-right: 0.5rem;
+        position: relative;
+      }
+      .ausermanagement-btn-primary {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+      }
+      .ausermanagement-btn-primary:hover {
+        background-color: #4338ca;
+      }
+      .ausermanagement-btn-secondary {
+        background-color: var(--light-color);
+        color: var(--text-color);
+        border: 1px solid var(--border-color);
+      }
+      .ausermanagement-btn-secondary:hover {
+        background-color: #f3f4f6;
+      }
+      .ausermanagement-btn-danger {
+        background-color: transparent;
+        color: var(--danger-color);
+        border: 1px solid var(--danger-color);
+      }
+      .ausermanagement-btn-danger:hover {
+        background-color: rgba(239, 68, 68, 0.1);
+      }
+      .ausermanagement-btn:hover::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--text-color);
+        color: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        font-size: 0.75rem;
+        white-space: nowrap;
+        z-index: 10;
+      }
+      .ausermanagement-status-badge {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        border-radius: 1rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+      }
+      .ausermanagement-status-active {
+        background-color: rgba(34, 197, 94, 0.1);
+        color: var(--success-color);
+      }
+      .ausermanagement-status-inactive {
+        background-color: rgba(239, 68, 68, 0.1);
+        color: var(--danger-color);
+      }
+      .ausermanagement-pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 0;
+      }
+      .ausermanagement-pagination-controls {
+        display: flex;
+        gap: 0.5rem;
+      }
+      .ausermanagement-pagination-btn {
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        border: 1px solid var(--border-color);
+        background: var(--light-color);
+        cursor: pointer;
+        font-size: 0.85rem;
+        transition: all 0.2s ease;
+      }
+      .ausermanagement-pagination-btn:hover {
+        background: var(--secondary-color);
+      }
+      .ausermanagement-pagination-btn.ausermanagement-active {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+      }
+      .ausermanagement-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+      }
+      .ausermanagement-modal-content {
+        background: var(--light-color);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        width: 100%;
+        max-width: 600px;
+        box-shadow: var(--shadow-md);
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+      .ausermanagement-modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+      .ausermanagement-modal-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+      .ausermanagement-modal-close {
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-muted);
+      }
+      .ausermanagement-modal-close:hover {
+        color: var(--text-color);
+      }
+      .ausermanagement-modal-body {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .ausermanagement-modal-body label {
+        font-size: 0.85rem;
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+      }
+      .ausermanagement-modal-body input,
+      .ausermanagement-modal-body select {
+        padding: 0.5rem;
+        border: 1px solid var(--border-color);
+        border-radius: 0.375rem;
+        font-size: 0.85rem;
+        width: 100%;
+      }
+      .ausermanagement-modal-body p {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+      }
+      .ausermanagement-modal-body p strong {
+        font-weight: 600;
+      }
+      .ausermanagement-modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+      .ausermanagement-activity-history {
+        margin-top: 1rem;
+      }
+      .ausermanagement-activity-history h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+      .ausermanagement-activity-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .ausermanagement-activity-table th,
+      .ausermanagement-activity-table td {
+        padding: 0.5rem;
+        border: 1px solid var(--border-color);
+        font-size: 0.85rem;
+        text-align: left;
+      }
+      .ausermanagement-activity-table th {
+        background: var(--secondary-color);
+        font-weight: 500;
+      }
+      @media (max-width: 1024px) {
+        .ausermanagement-sidebar {
+          width: 80px;
+        }
+        .ausermanagement-sidebar-header h2 span,
+        .ausermanagement-sidebar-item span,
+        .ausermanagement-sidebar-section h3 {
+          display: none;
+        }
+        .ausermanagement-sidebar-item {
+          justify-content: center;
+        }
+        .ausermanagement-sidebar-item i {
+          margin: 0;
+        }
+        .ausermanagement-data-table th,
+        .ausermanagement-data-table td {
+          font-size: 0.75rem;
+          padding: 0.5rem;
+        }
+      }
+      @media (max-width: 768px) {
+        .ausermanagement-container {
+          flex-direction: column;
+        }
+        .ausermanagement-sidebar {
+          width: 100%;
+          height: auto;
+          position: relative;
+        }
+        .ausermanagement-main-content {
+          padding: 1rem;
+        }
+        .ausermanagement-search-bar {
+          max-width: 100%;
+        }
+        .ausermanagement-filter-bar {
+          flex-direction: column;
+        }
+        .ausermanagement-modal-content {
+          margin: 1rem;
+          max-width: 90%;
+        }
+        .ausermanagement-data-table {
+          display: block;
+          overflow-x: auto;
+        }
+        .ausermanagement-data-table thead {
+          display: none;
+        }
+        .ausermanagement-data-table tbody,
+        .ausermanagement-data-table tr,
+        .ausermanagement-data-table td {
+          display: block;
+          width: 100%;
+        }
+        .ausermanagement-data-table td {
+          position: relative;
+          padding-left: 50%;
+        }
+        .ausermanagement-data-table td::before {
+          content: attr(data-label);
+          position: absolute;
+          left: 1rem;
+          width: 45%;
+          font-weight: 600;
+        }
+      }

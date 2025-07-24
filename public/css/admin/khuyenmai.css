@@ -1,0 +1,437 @@
+      :root {
+        --primary-color: #4f46e5;
+        --secondary-color: #f9fafb;
+        --success-color: #22c55e;
+        --danger-color: #ef4444;
+        --light-color: #ffffff;
+        --border-color: #e5e7eb;
+        --text-color: #374151;
+        --text-muted: #6b7280;
+        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+      body {
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+      }
+      .apromotions-container {
+        display: flex;
+        min-height: 100vh;
+      }
+      .apromotions-sidebar {
+        width: 280px;
+        background-color: var(--light-color);
+        padding: 1.5rem 0;
+        box-shadow: var(--shadow-sm);
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        transition: width 0.3s ease;
+      }
+      .apromotions-sidebar-header {
+        padding: 0 1.5rem 1.5rem;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 1.5rem;
+      }
+      .apromotions-sidebar-header h2 {
+        color: var(--primary-color);
+        font-size: 1.25rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .apromotions-sidebar-header h2 i {
+        font-size: 1.5rem;
+      }
+      .apromotions-sidebar-section {
+        margin-bottom: 2rem;
+        padding: 0 1.5rem;
+      }
+      .apromotions-sidebar-section h3 {
+        color: var(--text-muted);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+      .apromotions-sidebar-item {
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        border-radius: 0.5rem;
+        margin-bottom: 0.25rem;
+        transition: all 0.2s ease;
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .apromotions-sidebar-item i {
+        width: 1.5rem;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .apromotions-sidebar-item:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        transform: translateX(0.25rem);
+      }
+      .apromotions-sidebar-item.apromotions-active {
+        background-color: rgba(79, 70, 229, 0.1);
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+      .apromotions-main-content {
+        flex: 1;
+        padding: 2rem;
+        background-color: var(--secondary-color);
+      }
+      .apromotions-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+      .apromotions-search-bar {
+        display: flex;
+        align-items: center;
+        background-color: var(--light-color);
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        max-width: 400px;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.2s ease;
+      }
+      .apromotions-search-bar:hover {
+        box-shadow: var(--shadow-md);
+      }
+      .apromotions-search-bar input {
+        border: none;
+        outline: none;
+        flex: 1;
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        background: transparent;
+      }
+      .apromotions-search-bar i {
+        color: var(--text-muted);
+        margin-right: 0.5rem;
+      }
+      .apromotions-user-profile {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .apromotions-notification-bell {
+        position: relative;
+        font-size: 1.25rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: color 0.2s ease;
+      }
+      .apromotions-notification-bell:hover {
+        color: var(--primary-color);
+      }
+      .apromotions-profile-avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        color: white;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+      }
+      .apromotions-page-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--text-color);
+        margin-bottom: 0.5rem;
+      }
+      .apromotions-page-subtitle {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+      }
+      .apromotions-actions-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 1.5rem;
+      }
+      .apromotions-form-group {
+        margin-bottom: 1.25rem;
+      }
+      .apromotions-form-group label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+      .apromotions-form-group input,
+      .apromotions-form-group select {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid var(--border-color);
+        border-radius: 0.375rem;
+        font-size: 0.9rem;
+      }
+      .apromotions-form-group select[multiple] {
+        height: 120px;
+        padding: 0.5rem;
+      }
+      .apromotions-form-group select[multiple] option {
+        padding: 0.5rem;
+      }
+      .apromotions-btn {
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        cursor: pointer;
+        border: none;
+        transition: all 0.2s ease;
+      }
+      .apromotions-btn-primary {
+        background-color: var(--primary-color);
+        color: white;
+      }
+      .apromotions-btn-primary:hover {
+        background-color: #4338ca;
+      }
+      .apromotions-btn-danger {
+        background-color: var(--danger-color);
+        color: white;
+      }
+      .apromotions-btn-danger:hover {
+        background-color: #dc2626;
+      }
+      .apromotions-btn-secondary {
+        background-color: var(--border-color);
+        color: var(--text-color);
+      }
+      .apromotions-btn-secondary:hover {
+        background-color: #d1d5db;
+      }
+      .apromotions-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        overflow-y: auto;
+      }
+      .apromotions-modal-content {
+        background: var(--light-color);
+        padding: 2rem;
+        border-radius: 0.5rem;
+        width: 100%;
+        max-width: 600px;
+        box-shadow: var(--shadow-md);
+        position: relative;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+      .apromotions-modal-content h2 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+      }
+      .apromotions-modal-close {
+        position: sticky;
+        top: 1rem;
+        right: 1rem;
+        cursor: pointer;
+        font-size: 1.25rem;
+        color: var(--text-muted);
+        float: right;
+      }
+      .apromotions-modal-close:hover {
+        color: var(--primary-color);
+      }
+      .apromotions-promotion-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 2rem;
+        background: var(--light-color);
+        box-shadow: var(--shadow-sm);
+        border-radius: 0.5rem;
+        overflow: hidden;
+      }
+      .apromotions-promotion-table th,
+      .apromotions-promotion-table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .apromotions-promotion-table th {
+        background: var(--secondary-color);
+        font-weight: 600;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+      }
+      .apromotions-promotion-table td {
+        font-size: 0.9rem;
+      }
+      .apromotions-promotion-table tr.visible {
+        display: table-row;
+      }
+      .apromotions-promotion-table .product-cell {
+        max-width: 150px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .apromotions-promotion-table .product-cell:hover::after {
+        content: attr(data-full);
+        position: absolute;
+        background: var(--light-color);
+        border: 1px solid var(--border-color);
+        padding: 0.5rem;
+        border-radius: 0.375rem;
+        z-index: 10;
+        max-width: 300px;
+        white-space: normal;
+      }
+      .apromotions-promotion-table tr:hover {
+        background: rgba(79, 70, 229, 0.05);
+      }
+      .apromotions-promotion-table .status-active {
+        color: var(--success-color);
+        font-weight: 500;
+      }
+      .apromotions-promotion-table .status-inactive {
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+      .apromotions-promotion-table .actions {
+        display: flex;
+        gap: 0.5rem;
+      }
+      .apromotions-promotion-table .actions button {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+      }
+      .apromotions-promotion-table .dm-actions {
+        gap: 0.5rem;
+      }
+      .apromotions-promotion-table .dm-actions button {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+      }
+      .apromotions-promotion-table .dm-action-td {
+        display: flex;
+        gap: 0.8rem;
+      }
+      .apromotions-pagination {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+      .apromotions-pagination-btn {
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 0.375rem;
+        background: var(--light-color);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .apromotions-pagination-btn:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+      .apromotions-pagination-btn.active {
+        background: var(--primary-color);
+        color: white;
+        font-weight: 600;
+      }
+      .apromotions-pagination-btn:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+      .apromotions-modal-actions {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: flex-end;
+      }
+      .error-message {
+        color: var(--danger-color);
+        font-size: 0.8rem;
+        margin-top: 0.25rem;
+        display: none;
+      }
+      @media (max-width: 1024px) {
+        .apromotions-sidebar {
+          width: 80px;
+        }
+        .apromotions-sidebar-header h2 span,
+        .apromotions-sidebar-item span,
+        .apromotions-sidebar-section h3 {
+          display: none;
+        }
+        .apromotions-sidebar-item {
+          justify-content: center;
+        }
+        .apromotions-promotion-table {
+          font-size: 0.8rem;
+        }
+        .apromotions-promotion-table th,
+        .apromotions-promotion-table td {
+          padding: 0.75rem;
+        }
+        .apromotions-promotion-table .product-cell {
+          max-width: 100px;
+        }
+      }
+      @media (max-width: 768px) {
+        .apromotions-container {
+          flex-direction: column;
+        }
+        .apromotions-sidebar {
+          width: 100%;
+          height: auto;
+          position: relative;
+        }
+        .apromotions-main-content {
+          padding: 1rem;
+        }
+        .apromotions-search-bar {
+          max-width: 100%;
+        }
+        .apromotions-modal-content {
+          width: 90%;
+          max-height: 80vh;
+        }
+        .apromotions-promotion-table {
+          display: block;
+          overflow-x: auto;
+        }
+        .apromotions-promotion-table th,
+        .apromotions-promotion-table td {
+          min-width: 120px;
+        }
+        .apromotions-actions-container {
+          justify-content: center;
+        }
+        .apromotions-promotion-table .product-cell {
+          max-width: 80px;
+        }
+      }

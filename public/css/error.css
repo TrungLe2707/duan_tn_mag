@@ -1,0 +1,90 @@
+
+        .error-container {
+            position: relative;
+            top: 20px;
+            margin: auto;
+            text-align: center;
+            max-width: 600px;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
+        }
+
+        .error-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .error-message {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .home-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #000000;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid #000;
+        }
+
+        .home-button:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .error-mag-logo {
+            max-width: 120px;
+            margin-bottom: 20px;
+            filter: grayscale(100%);
+        }
+
+        .error-image img {
+            max-width: 100%;
+            height: auto;
+            margin: -15% 0px;
+        }
+
+
+
+
+
+        @media (min-width: 768px) {}
+
+
+        @media (max-width: 550px) {
+            .error-title {
+                font-size: 1.1rem;
+                font-weight: 600;
+                margin-bottom: 10px;
+                letter-spacing: 0.5px;
+            }
+
+            .error-message {
+                font-size: 0.8rem;
+                line-height: 1.4;
+                margin-bottom: 15px;
+            }
+
+            .home-button {
+                display: inline-block;
+                padding: 8px 20px;
+                font-weight: 300;
+                font-size: 0.8rem;
+            }
+
+            .error-container {
+                max-width: 500px;
+                padding: 20px;
+            }
+        }
