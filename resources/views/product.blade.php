@@ -264,6 +264,9 @@
                                                                     <img src="{{ asset('img/kocoanh.png') }}" alt="no ảnh ok like" width="150">
                                                                 @endif
                                                             </a>
+                                                            <div class="item-buy-now">
+                                                                <a class="a-buy-now" href="">Mua ngay</a>
+                                                            </div>
                                                         </div>
 
                                                         <div class="item-name">

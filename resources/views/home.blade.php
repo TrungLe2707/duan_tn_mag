@@ -28,6 +28,10 @@
             <button class="nav-dot"></button>
         </div>
     </div>
+
+
+    {{-- bắt đầu slider --}}
+
     {{-- kết thúc slider --}}
 
     <div class="introduce">
@@ -80,12 +84,15 @@
                 @forelse ($flash_sale_products as $product)
                     <li class="item" style="background-color: white; border-radius: 7px;">
                         <div class="item-img">
-                            <span class="item-giam">{{ $product->sale }}%</span>
+                            <span class="item-giam">-{{ $product->sale }}%</span>
                             <div class="item-icon" id="addToCartBtn"><i class="fa-solid fa-cart-shopping"></i></div>
                             <a href="{{ asset('/detail/' . $product->id) }}">
                                 <img src="{{ asset($product->images->first()->path ?? '/img/default.jpg') }}" alt="">
                             </a>
                             <span class="item-flash-sale" style="">Flash sale!!</span>
+                            <div class="item-buy-now">
+                                <a class="a-buy-now" href="">Mua ngay</a>
+                            </div>
                         </div>
                         <div class="item-name item-name-sale">
                             <h3>
@@ -103,11 +110,14 @@
                 @foreach ($products_sale as $product )
                     <li class="item" style="background-color: white; border-radius: 7px;">
                         <div class="item-img">
-                            <span class="item-giam">{{ $product->sale }}%</span>
+                            <span class="item-giam">-{{ $product->sale }}%</span>
                             <div class="item-icon" id="addToCartBtn"><i class="fa-solid fa-cart-shopping"></i></div>
                             <a href="{{ asset('/detail/' . $product->id) }}">
                                 <img src="{{ asset($product->images->first()->path ?? '/img/default.jpg') }}" alt="">
                             </a>
+                            <div class="item-buy-now">
+                                <a class="a-buy-now" href="">Mua ngay</a>
+                            </div>
                         </div>
                         <div class="item-name item-name-sale">
                             <h3>
@@ -197,8 +207,8 @@
      </section>
 
      <!-- san pham nổi bật -->
-    <section class="product-new product-popular">
-        <div style="padding: 0px 7px;">
+    <section class="product-new">
+        <div style="padding: 0px 7px">
             <h2 class="section-title">Sản phẩm bán chạy</h2>
             <div style="display: flex;align-items: center;gap: 5px; margin-top: 18px;">
                 <a class="see-all" href="/productBestseller" style="color: black; text-decoration: none;">Xem tất cả</a><i
@@ -207,46 +217,47 @@
         </div>
         <div class="grid wide container">
             <div class="row product_featured">
-                <div class="row">
-                    @foreach ($products_bestseller as $products_bestseller)
-                        <div class="col l-3 m-6 c-6 ">
-                            <div class="item">
-                                <div class="item-img">
-                                    <span class="item-giam">-{{ $products_bestseller->sale }}%</span>
-                                    <div class="item-icon">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                    </div>
+                @foreach ($products_bestseller as $products_bestseller)
+                    <div class="col l-3 m-6 c-6 ">
+                        <div class="item">
+                            <div class="item-img">
+                                <span class="item-giam">-{{ $products_bestseller->sale }}%</span>
+                                <div class="item-icon">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </div>
 
-                                    <a href="{{asset('/detail/' . $products_bestseller->id)}}">
-                                        <img src="{{ asset($products_bestseller->images->first()->path) }}"
-                                            alt="{{ $products_bestseller->name }}">
-                                    </a>
-                                </div>
-                                <div class="item-name">
-                                    <h3>
-                                        <a href="{{asset('/detail/' . $products_bestseller->id)}}">
-                                            {{ $products_bestseller->name }}
-                                        </a>
-                                    </h3>
-                                </div>
-                                <div class="item-price">
-                                    <span style="color: red;padding-right: 10px;">
-                                        {{ number_format($products_bestseller->price , 0, ',', '.') }}đ
-                                    </span>
-                                    <span><del>{{ number_format($products_bestseller->original_price, 0, ',', '.') }}đ</del></span>
+                                <a href="{{asset('/detail/' . $products_bestseller->id)}}">
+                                    <img src="{{ asset($products_bestseller->images->first()->path) }}"
+                                        alt="{{ $products_bestseller->name }}">
+                                </a>
+                                <div class="item-buy-now">
+                                    <a class="a-buy-now" href="">Mua ngay</a>
                                 </div>
                             </div>
+                            <div class="item-name">
+                                <h3>
+                                    <a href="{{asset('/detail/' . $products_bestseller->id)}}">
+                                        {{ $products_bestseller->name }}
+                                    </a>
+                                </h3>
+                            </div>
+                            <div class="item-price">
+                                <span style="color: red;padding-right: 10px;">
+                                    {{ number_format($products_bestseller->price , 0, ',', '.') }}đ
+                                </span>
+                                <span><del>{{ number_format($products_bestseller->original_price, 0, ',', '.') }}đ</del></span>
+                            </div>
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
 
 
     <!-- san pham nổi bật -->
-    <section class="product-new product-popular">
-        <div style="padding: 0px 7px;">
+    <section class="product-new">
+        <div style="padding: 0px 7px">
             <h2 class="section-title">Sản phẩm nổi bật</h2>
             <div style="display: flex;align-items: center;gap: 5px; margin-top: 18px;">
                 <a class="see-all" href="/productFeatured" style="color: black; text-decoration: none;">Xem tất cả</a><i
@@ -255,38 +266,39 @@
         </div>
         <div class="grid wide container">
             <div class="row product_featured">
-                <div class="row">
-                    @foreach ($products_is_featured as $products_is_featured)
-                        <div class="col l-3 m-6 c-6 ">
-                            <div class="item">
-                                <div class="item-img">
-                                    <span class="item-giam">-{{ $products_is_featured->sale }}%</span>
-                                    <div class="item-icon">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                    </div>
+                @foreach ($products_is_featured as $products_is_featured)
+                    <div class="col l-3 m-6 c-6 ">
+                        <div class="item">
+                            <div class="item-img">
+                                <span class="item-giam">-{{ $products_is_featured->sale }}%</span>
+                                <div class="item-icon">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </div>
 
-                                    <a href="{{asset('/detail/' . $products_is_featured->id)}}">
-                                        <img src="{{ asset($products_is_featured->images->first()->path) }}"
-                                            alt="{{ $products_is_featured->name }}">
-                                    </a>
-                                </div>
-                                <div class="item-name">
-                                    <h3>
-                                        <a href="{{asset('/detail/' . $products_is_featured->id)}}">
-                                            {{ $products_is_featured->name }}
-                                        </a>
-                                    </h3>
-                                </div>
-                                <div class="item-price">
-                                    <span style="color: red;padding-right: 10px;">
-                                        {{ number_format($products_is_featured->price , 0, ',', '.') }}đ
-                                    </span>
-                                    <span><del>{{ number_format($products_is_featured->original_price, 0, ',', '.') }}đ</del></span>
+                                <a href="{{asset('/detail/' . $products_is_featured->id)}}">
+                                    <img src="{{ asset($products_is_featured->images->first()->path) }}"
+                                        alt="{{ $products_is_featured->name }}">
+                                </a>
+                                <div class="item-buy-now">
+                                    <a class="a-buy-now" href="">Mua ngay</a>
                                 </div>
                             </div>
+                            <div class="item-name">
+                                <h3>
+                                    <a href="{{asset('/detail/' . $products_is_featured->id)}}">
+                                        {{ $products_is_featured->name }}
+                                    </a>
+                                </h3>
+                            </div>
+                            <div class="item-price">
+                                <span style="color: red;padding-right: 10px;">
+                                    {{ number_format($products_is_featured->price , 0, ',', '.') }}đ
+                                </span>
+                                <span><del>{{ number_format($products_is_featured->original_price, 0, ',', '.') }}đ</del></span>
+                            </div>
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -334,6 +346,9 @@
                                     <a href="{{asset('/detail/'. $product->id)}}">
                                         <img src="{{ asset($product->images->first()->path) }}" alt="{{ $product->name }}">
                                     </a>
+                                    <div class="item-buy-now">
+                                        <a class="a-buy-now" href="">Mua ngay</a>
+                                    </div>
                                 </div>
                                 <div class="item-name">
                                     <h3>

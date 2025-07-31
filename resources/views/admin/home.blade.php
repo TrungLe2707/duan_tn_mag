@@ -190,7 +190,8 @@
                         <tbody>
                             <tr>
                                 <td>#DH-{{ $donhangganday->id }}</td>
-                                <td>{{ $donhangganday->user->name }}</td>
+                               <td>{{ $donhangganday->user->name ?? '' }}</td>
+
                                 <td>{{ $donhangganday->total_price }}đ</td>
                                 <td>
                                     <span

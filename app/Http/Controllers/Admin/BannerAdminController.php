@@ -36,6 +36,7 @@ class BannerAdminController extends Controller
         Banners::create($data);
 
         return redirect()->route('admin.banners.index')->with('success', 'Thêm thành công!');
+
     }
 
     public function update(Request $request, $id)
