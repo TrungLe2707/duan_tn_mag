@@ -1,10 +1,18 @@
 <?php
 
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\Admin\CategoryAdminController;
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
 use App\Http\Controllers\Admin\HomeAdminController;
 
 use App\Http\Controllers\Admin\NewAdminController;
 
 
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\admin\VoucherAdminController;
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Auth\SocialLoginController;
@@ -35,10 +43,16 @@ use App\Http\Controllers\Admin\ImageAdminController;
 use App\Http\Controllers\Admin\ContactAdminController;
 use App\Http\Controllers\Admin\AdminCustomerController;
 use App\Http\Controllers\Admin\AdminUserController;
+<<<<<<< HEAD
 use App\Http\Controllers\Admin\CategoryAdminController;
 use App\Http\Controllers\admin\VoucherAdminController;
 use App\Http\Controllers\Admin\BannerAdminController;
 use League\Uri\Contracts\UserInfoInterface;
+=======
+use App\Http\Controllers\Admin\AdminReviewController;
+use App\Http\Controllers\Admin\AdminBaocaoController;
+
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
 
 Route::get('about', function () {
     return view('about');
@@ -203,9 +217,13 @@ Route::post('/admin/reply-comment', [HomeAdminController::class, 'replyComment']
 // Route::get('/admin/', function () {
 //     return view('admin.home');
 // });
+<<<<<<< HEAD
 Route::get('/admin/baocao', function () {
     return view('admin.baocao');
 });
+=======
+
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
 Route::get('/admin/caidat', function () {
     return view('admin.caidat');
 });
@@ -349,6 +367,7 @@ Route::delete('/admin/quanlynguoidung/{id}/remove-role', [AdminUserController::c
 Route::get('/admin/quanlynguoidung/{id}', [AdminUserController::class, 'show'])->name('admin.users.show');
 
 
+<<<<<<< HEAD
 // Danh sách banner
 Route::get('/admin/quanlybanner', [BannerAdminController::class, 'index'])->name('admin.banners.index');
 
@@ -362,3 +381,32 @@ Route::put('/admin/banners/{id}', [BannerAdminController::class, 'update'])->nam
 Route::delete('/admin/banners/{id}', [BannerAdminController::class, 'destroy'])->name('admin.banners.destroy');
 
 Route::get('/check-login', [UserInfoController::class, 'Kiem_tra_login']);
+=======
+// chung theem
+Route::get('/admin/khuyenmai', [VoucherAdminController::class, 'index'])->name('admin.vouchers.index');
+Route::post('/admin/vouchers', [VoucherAdminController::class, 'store'])->name('admin.vouchers.store');
+Route::delete('/admin/vouchers/{id}', [VoucherAdminController::class, 'destroy'])->name('admin.vouchers.destroy');
+Route::put('/admin/vouchers/{id}', [VoucherAdminController::class, 'update'])->name('vouchers.update');
+
+
+
+Route::get('/admin/danhmuc', [CategoryAdminController::class, 'index'])->name('admin.categories.index');
+Route::post('/admin/categories', [CategoryAdminController::class, 'store'])->name('admin.categories.store');
+Route::delete('/admin/categories/{id}', [CategoryAdminController::class, 'destroy'])->name('admin.categories.destroy');
+Route::put('/admin/categories/{id}', [CategoryAdminController::class, 'update'])->name('admin.categories.update');
+
+
+// manh
+// Route::get('/admin/comments', function () {
+//     return view('admin.comments');
+// });
+Route::get('/admin/comments', [AdminReviewController::class, 'index']);
+Route::post('/admin/reply-comments', [AdminReviewController::class, 'replyComments'])->name('reply-comments');
+Route::get('/admin/comment/delete/{id}', [AdminReviewController::class, 'destroy'])->name('admin.comment.delete');
+
+// Route::get('/admin/baocao', function () {
+//     return view('admin.baocao');
+// });
+Route::get('/admin/baocao', [AdminBaocaoController::class, 'index']);
+Route::post('/admin/reports/filter', [AdminBaocaoController::class, 'filter'])->name('admin.reports.filter');
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03

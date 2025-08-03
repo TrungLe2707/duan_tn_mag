@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo kinh doanh</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #f9fafb;
+            --success-color: #22c55e;
+            --danger-color: #ef4444;
+            --light-color: #ffffff;
+            --border-color: #e5e7eb;
+            --text-color: #374151;
+            --text-muted: #6b7280;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+
+        .areports-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .adbl-sidebar {
+            width: 280px;
+            background-color: var(--light-color);
+            padding: 1.5rem 0;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            transition: var(--transition);
+        }
+
+        .adbl-sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .adbl-sidebar::-webkit-scrollbar-thumb {
+            background-color: var(--text-muted);
+            border-radius: 4px;
+        }
+
+        .adbl-sidebar::-webkit-scrollbar-track {
+            background-color: var(--secondary-color);
+        }
+
+        .adbl-sidebar-header {
+            padding: 0 1.5rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .adbl-sidebar-header h2 {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .adbl-sidebar-header h2 i {
+            font-size: 1.5rem;
+        }
+
+        .adbl-sidebar-section {
+            margin-bottom: 2rem;
+            padding: 0 1.5rem;
+        }
+
+        .adbl-sidebar-section h3 {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .adbl-sidebar-item {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .adbl-sidebar-item i {
+            width: 1.5rem;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .adbl-sidebar-item:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            transform: translateX(0.25rem);
+        }
+
+        .adbl-sidebar-item.adbl-active {
+            background-color: rgba(79, 70, 229, 0.1);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .areports-main-content {
+            flex: 1;
+            padding: 1.5rem;
+            background-color: var(--secondary-color);
+        }
+
+        .areports-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .areports-search-bar {
+            display: flex;
+            align-items: center;
+            background-color: var(--light-color);
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+
+        .areports-search-bar:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .areports-search-bar input {
+            border: none;
+            outline: none;
+            flex: 1;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+            background: transparent;
+        }
+
+        .areports-search-bar i {
+            color: var(--text-muted);
+            margin-right: 0.5rem;
+        }
+
+        .areports-user-profile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .areports-notification-bell {
+            position: relative;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .areports-notification-bell:hover {
+            color: var(--primary-color);
+        }
+
+        .areports-profile-avatar {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .areports-page-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .areports-page-subtitle {
+            color: var(--primary-color);
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .areports-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .areports-summary-card {
+            background-color: var(--light-color);
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+
+        .areports-summary-card h4 {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .areports-summary-card p {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .areports-filter-container {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            background-color: var(--light-color);
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .areports-filter-form {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+
+        .areports-filter-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 150px;
+        }
+
+        .areports-filter-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .areports-filter-group input,
+        .areports-filter-group select {
+            padding: 0.4rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.375rem;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            background-color: var(--secondary-color);
+        }
+
+        .areports-filter-group input:hover,
+        .areports-filter-group select:hover {
+            border-color: var(--primary-color);
+        }
+
+        .areports-filter-group input:focus,
+        .areports-filter-group select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+            background-color: var(--light-color);
+        }
+
+        .areports-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.375rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+
+        .areports-btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .areports-btn-primary:hover {
+            background-color: #4338ca;
+            transform: scale(1.05);
+        }
+
+        .areports-report-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+            background: var(--light-color);
+            box-shadow: var(--shadow-sm);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .areports-report-table th,
+        .areports-report-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .areports-report-table th {
+            background: var(--secondary-color);
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .areports-report-table td {
+            font-size: 0.9rem;
+        }
+
+        .areports-report-table thead tr {
+            display: table-row; /* Ensure thead rows are always visible */
+        }
+
+        .areports-report-table tbody tr {
+            display: none; /* Only hide tbody rows for pagination */
+        }
+
+        .areports-report-table tbody tr.visible {
+            display: table-row;
+        }
+
+        .areports-report-table tr:hover {
+            background: rgba(79, 70, 229, 0.05);
+        }
+
+        .areports-pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .areports-pagination-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.375rem;
+            background: var(--light-color);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .areports-pagination-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .areports-pagination-btn.active {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .adbl-sidebar {
+                width: 80px;
+            }
+            .adbl-sidebar-header h2 span,
+            .adbl-sidebar-item span,
+            .adbl-sidebar-section h3 {
+                display: none;
+            }
+            .adbl-sidebar-item {
+                justify-content: center;
+            }
+            .adbl-sidebar-item i {
+                margin: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .areports-container {
+                flex-direction: column;
+            }
+            .adbl-sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                overflow-y: visible;
+            }
+            .areports-main-content {
+                padding: 0.75rem;
+            }
+            .areports-search-bar {
+                max-width: 100%;
+            }
+            .areports-summary {
+                grid-template-columns: 1fr;
+            }
+            .areports-report-table {
+                display: block;
+                overflow-x: auto;
+            }
+            .areports-report-table th,
+            .areports-report-table td {
+                min-width: 120px;
+            }
+            .areports-filter-container {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.5rem;
+            }
+            .areports-filter-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .areports-filter-group {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="areports-container">
+        <div class="adbl-sidebar">
+            <div class="adbl-sidebar-header">
+                <h2><i class="fas fa-tshirt"></i> <span>Fashion Store</span></h2>
+            </div>
+            <div class="adbl-sidebar-section">
+                <h3>Bảng điều khiển</h3>
+                <a href="/admin/" class="adbl-sidebar-item adbl-active"><i class="fas fa-home"></i><span>Trang chủ</span></a>
+                <a href="/admin/products" class="adbl-sidebar-item"><i class="fas fa-box-open"></i><span>Sản phẩm</span></a>
+                <a href="/admin/danhmuc" class="adbl-sidebar-item"><i class="fas fa-shopping-bag"></i><span>Danh mục</span></a>
+                <a href="/admin/orders" class="adbl-sidebar-item"><i class="fas fa-shopping-cart"></i><span>Đơn hàng</span></a>
+                <a href="/admin/khuyenmai" class="adbl-sidebar-item"><i class="fas fa-tags"></i><span>Khuyến mãi</span></a>
+                <a href="/admin/countdown" class="adbl-sidebar-item"><i class="fas fa-clock"></i><span>Count down</span></a>
+                <a href="/admin/baocao" class="adbl-sidebar-item"><i class="fas fa-chart-bar"></i><span>Báo cáo</span></a>
+            </div>
+            <div class="adbl-sidebar-section">
+                <h3>Công cụ</h3>
+                <a href="/admin/quanlykho" class="adbl-sidebar-item"><i class="fas fa-warehouse"></i><span>Quản lý kho</span></a>
+                <a href="/admin/quanlyhinhanh" class="adbl-sidebar-item"><i class="fas fa-images"></i><span>Hình ảnh sản phẩm</span></a>
+                <a href="/admin/quanlykhachhang" class="adbl-sidebar-item"><i class="fas fa-users"></i><span>Khách hàng</span></a>
+                <a href="/admin/quanlynguoidung" class="adbl-sidebar-item"><i class="fas fa-user-cog"></i><span>Quản lý người dùng</span></a>
+            </div>
+            <div class="adbl-sidebar-section">
+                <h3>Nội dung</h3>
+                <a href="/admin/quanlytintuc" class="adbl-sidebar-item"><i class="fas fa-newspaper"></i><span>Tin tức</span></a>
+                <a href="/admin/comments" class="adbl-sidebar-item"><i class="fas fa-comments"></i><span>Bình luận</span></a>
+            </div>
+            <div class="adbl-sidebar-section">
+                <h3>Hệ thống</h3>
+                <a href="/admin/caidat" class="adbl-sidebar-item"><i class="fas fa-cog"></i><span>Cài đặt</span></a>
+                <a href="/admin/hotro" class="adbl-sidebar-item"><i class="fas fa-headset"></i><span>Hỗ trợ</span></a>
+                <a href="/admin/quanlylienhe" class="adbl-sidebar-item"><i class="fas fa-envelope"></i><span>Liên hệ</span></a>
+            </div>
+        </div>
+        <div class="areports-main-content">
+            <div class="areports-header">
+                <div class="areports-search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm báo cáo..." />
+                </div>
+                <div class="areports-user-profile">
+                    <div class="areports-notification-bell">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="areports-profile-avatar">QT</div>
+                </div>
+            </div>
+            <h1 class="areports-page-title">Báo cáo kinh doanh</h1>
+            <p class="areports-page-subtitle">Phân tích hiệu suất kinh doanh</p>
+            <div class="areports-filter-container">
+                <form id="filter-form" action="#" method="POST" class="areports-filter-form">
+                    <div class="areports-filter-group">
+                        <label for="startDateTime">Từ ngày giờ</label>
+                        <input type="datetime-local" id="startDateTime" name="startDateTime" value="2025-07-27T10:30" />
+                    </div>
+                    <div class="areports-filter-group">
+                        <label for="endDateTime">Đến ngày giờ</label>
+                        <input type="datetime-local" id="endDateTime" name="endDateTime" value="2025-07-27T23:59" />
+                    </div>
+                    <div class="areports-filter-group">
+                        <label for="reportType">Loại báo cáo</label>
+                        <select id="reportType" name="reportType">
+                            <option value="all">Tất cả</option>
+                            <option value="sales">Doanh thu</option>
+                            <option value="products">Sản phẩm</option>
+                            <option value="orders">Đơn hàng</option>
+                        </select>
+                    </div>
+                    <div class="areports-filter-group">
+                        <label for="category">Danh mục</label>
+                        <select id="category" name="category">
+                            <option value="all">Tất cả</option>
+                            <option value="Áo thun">Áo thun</option>
+                            <option value="Quần jeans">Quần jeans</option>
+                            <option value="Áo khoác">Áo khoác</option>
+                            <option value="Giày">Giày</option>
+                            <option value="Váy">Váy</option>
+                            <option value="Phụ kiện">Phụ kiện</option>
+                        </select>
+                    </div>
+                    <div class="areports-filter-group">
+                        <label> </label>
+                        <button type="submit" class="areports-btn areports-btn-primary" id="applyFilter">Áp dụng</button>
+                    </div>
+                </form>
+            </div>
+            <div class="areports-summary">
+                <div class="areports-summary-card">
+                    <h4>Tổng doanh thu</h4>
+                    <p id="totalRevenue">2,300,000 VNĐ</p>
+                </div>
+                <div class="areports-summary-card">
+                    <h4>Tổng đơn hàng</h4>
+                    <p id="totalOrders">22</p>
+                </div>
+            </div>
+            <div class="areports-chart-card">
+                <table class="areports-report-table" id="productTable">
+                    <thead>
+                        <tr>
+                            <th>Mã sản phẩm</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Tên khách hàng</th>
+                            <th>Số lượng bán</th>
+                            <th>Giá bán (VNĐ)</th>
+                            <th>Doanh thu (VNĐ)</th>
+                            <th>Thời gian bán</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productList">
+                        <tr>
+                            <td>SP001</td>
+                            <td>Áo thun trắng</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>5</td>
+                            <td>50,000</td>
+                            <td>250,000</td>
+                            <td>27/07/2025 10:45</td>
+                        </tr>
+                        <tr>
+                            <td>SP002</td>
+                            <td>Quần jeans xanh</td>
+                            <td>Trần Thị B</td>
+                            <td>3</td>
+                            <td>80,000</td>
+                            <td>240,000</td>
+                            <td>27/07/2025 11:15</td>
+                        </tr>
+                        <tr>
+                            <td>SP003</td>
+                            <td>Áo khoác đen</td>
+                            <td>Lê Văn C</td>
+                            <td>2</td>
+                            <td>100,000</td>
+                            <td>200,000</td>
+                            <td>27/07/2025 12:00</td>
+                        </tr>
+                        <tr>
+                            <td>SP004</td>
+                            <td>Giày thể thao</td>
+                            <td>Phạm Thị D</td>
+                            <td>1</td>
+                            <td>250,000</td>
+                            <td>250,000</td>
+                            <td>27/07/2025 13:30</td>
+                        </tr>
+                        <tr>
+                            <td>SP005</td>
+                            <td>Váy hoa</td>
+                            <td>Hoàng Văn E</td>
+                            <td>2</td>
+                            <td>120,000</td>
+                            <td>240,000</td>
+                            <td>27/07/2025 14:45</td>
+                        </tr>
+                        <tr>
+                            <td>SP006</td>
+                            <td>Túi xách</td>
+                            <td>Ngô Thị F</td>
+                            <td>1</td>
+                            <td>90,000</td>
+                            <td>90,000</td>
+                            <td>27/07/2025 15:20</td>
+                        </tr>
+                        <tr>
+                            <td>SP007</td>
+                            <td>Áo sơ mi</td>
+                            <td>Đỗ Văn G</td>
+                            <td>3</td>
+                            <td>70,000</td>
+                            <td>210,000</td>
+                            <td>27/07/2025 16:30</td>
+                        </tr>
+                        <tr>
+                            <td>SP008</td>
+                            <td>Quần short</td>
+                            <td>Vũ Thị H</td>
+                            <td>2</td>
+                            <td>60,000</td>
+                            <td>120,000</td>
+                            <td>27/07/2025 17:45</td>
+                        </tr>
+                        <tr>
+                            <td>SP009</td>
+                            <td>Mũ lưỡi trai</td>
+                            <td>Bùi Văn I</td>
+                            <td>1</td>
+                            <td>40,000</td>
+                            <td>40,000</td>
+                            <td>27/07/2025 18:15</td>
+                        </tr>
+                        <tr>
+                            <td>SP010</td>
+                            <td>Áo len</td>
+                            <td>Trần Văn J</td>
+                            <td>2</td>
+                            <td>110,000</td>
+                            <td>220,000</td>
+                            <td>27/07/2025 19:00</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="areports-pagination" id="pagination"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sidebar navigation
+            const sidebarItems = document.querySelectorAll('.adbl-sidebar-item');
+            const rows = document.querySelectorAll('#productList tr'); // Only target tbody rows
+            const pagination = document.getElementById('pagination');
+            const itemsPerPage = 10;
+            let currentPage = 1;
+            const totalPages = Math.ceil(rows.length / itemsPerPage);
+
+            sidebarItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    sidebarItems.forEach(i => i.classList.remove('adbl-active'));
+                    this.classList.add('adbl-active');
+                    localStorage.setItem('activeSidebarItem', this.getAttribute('href'));
+                });
+
+                const activePath = localStorage.getItem('activeSidebarItem');
+                if (activePath && item.getAttribute('href') === activePath) {
+                    item.classList.add('adbl-active');
+                }
+            });
+
+            if (!localStorage.getItem('activeSidebarItem')) {
+                const currentPath = window.location.pathname;
+                sidebarItems.forEach(item => {
+                    if (item.getAttribute('href') === currentPath) {
+                        item.classList.add('adbl-active');
+                    }
+                });
+            }
+
+            function handleSidebarResponsive() {
+                const sidebar = document.querySelector('.adbl-sidebar');
+                if (!sidebar) return;
+                if (window.innerWidth <= 768) {
+                    sidebar.style.width = '100%';
+                    sidebar.style.height = 'auto';
+                    sidebar.style.position = 'relative';
+                } else if (window.innerWidth <= 1024) {
+                    sidebar.style.width = '80px';
+                } else {
+                    sidebar.style.width = '280px';
+                }
+            }
+
+            window.addEventListener('resize', handleSidebarResponsive);
+            handleSidebarResponsive();
+
+            // Pagination logic
+            function showPage(page) {
+                currentPage = page;
+                rows.forEach((row, index) => {
+                    row.classList.remove('visible');
+                    if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
+                        row.classList.add('visible');
+                    }
+                });
+                renderPagination();
+            }
+
+            function renderPagination() {
+                pagination.innerHTML = '';
+                let startPage = Math.max(1, currentPage - 1);
+                let endPage = Math.min(totalPages, currentPage + 1);
+
+                if (currentPage <= 2) {
+                    endPage = Math.min(3, totalPages);
+                } else if (currentPage >= totalPages - 1) {
+                    startPage = Math.max(1, totalPages - 2);
+                }
+
+                for (let i = startPage; i <= endPage; i++) {
+                    const button = document.createElement('a');
+                    button.href = '#';
+                    button.className = `areports-pagination-btn ${i === currentPage ? 'active' : ''}`;
+                    button.textContent = i;
+                    button.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        showPage(i);
+                    });
+                    pagination.appendChild(button);
+                }
+            }
+
+            // Initial page display
+            showPage(1);
+        });
+    </script>
+</body>
+</html>

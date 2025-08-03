@@ -5,6 +5,7 @@
         <div class="index-progress-bar"></div>
         <div class="index-slider-track-container">
             <div class="index-slider-track">
+<<<<<<< HEAD
                 @foreach ($sliders as $slider )
                 <div class="index-slide active" style="background-image: url('{{asset($slider->image)}}');">
                     <div class="index-slide-overlay"></div>
@@ -16,6 +17,41 @@
                     </div>
                 </div>
                 @endforeach
+=======
+                <div class="index-slide active" style="background-image: url('{{asset('/img/slide1.jpg')}}');">
+                    <div class="index-slide-overlay"></div>
+                    <div class="index-slide-content">
+                        <span class="season-tag">New Collection</span>
+                        <h1 class="index-slide-title">Elegant Simplicity</h1>
+                        <p class="index-slide-description">Discover our minimalist collection where every piece tells a
+                            story of
+                            refined elegance and timeless design.</p>
+                        <a href="#" class="shop-btn">Explore</a>
+                    </div>
+                </div>
+                <div class="index-slide" style="background-image: url('{{asset('/img/slider_2.webp')}}');">
+                    <div class="index-slide-overlay"></div>
+                    <div class="index-slide-content">
+                        <span class="season-tag">Summer 2023</span>
+                        <h1 class="index-slide-title">Luxury Accessories</h1>
+                        <p class="index-slide-description">Elevate your everyday with our curated selection of premium
+                            accessories
+                            crafted for the modern individual.</p>
+                        <a href="#" class="shop-btn">View Collection</a>
+                    </div>
+                </div>
+                <div class="index-slide" style="background-image: url('{{asset('/img/slider_3.webp')}}');">
+                    <div class="index-slide-overlay"></div>
+                    <div class="index-slide-content">
+                        <span class="season-tag">Men's Edition</span>
+                        <h1 class="index-slide-title">Tailored Perfection</h1>
+                        <p class="index-slide-description">Experience the perfect blend of comfort and sophistication with
+                            our
+                            premium menswear collection.</p>
+                        <a href="#" class="shop-btn">Shop Now</a>
+                    </div>
+                </div>
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
             </div>
         </div>
 
@@ -84,15 +120,22 @@
                 @forelse ($flash_sale_products as $product)
                     <li class="item" style="background-color: white; border-radius: 7px;">
                         <div class="item-img">
+<<<<<<< HEAD
                             <span class="item-giam">-{{ $product->sale }}%</span>
+=======
+                            <span class="item-giam">{{ $product->sale }}%</span>
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
                             <div class="item-icon" id="addToCartBtn"><i class="fa-solid fa-cart-shopping"></i></div>
                             <a href="{{ asset('/detail/' . $product->id) }}">
                                 <img src="{{ asset($product->images->first()->path ?? '/img/default.jpg') }}" alt="">
                             </a>
+<<<<<<< HEAD
                             <span class="item-flash-sale" style="">Flash sale!!</span>
                             <div class="item-buy-now">
                                 <a class="a-buy-now" href="">Mua ngay</a>
                             </div>
+=======
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
                         </div>
                         <div class="item-name item-name-sale">
                             <h3>
@@ -110,14 +153,21 @@
                 @foreach ($products_sale as $product )
                     <li class="item" style="background-color: white; border-radius: 7px;">
                         <div class="item-img">
+<<<<<<< HEAD
                             <span class="item-giam">-{{ $product->sale }}%</span>
+=======
+                            <span class="item-giam">{{ $product->sale }}%</span>
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
                             <div class="item-icon" id="addToCartBtn"><i class="fa-solid fa-cart-shopping"></i></div>
                             <a href="{{ asset('/detail/' . $product->id) }}">
                                 <img src="{{ asset($product->images->first()->path ?? '/img/default.jpg') }}" alt="">
                             </a>
+<<<<<<< HEAD
                             <div class="item-buy-now">
                                 <a class="a-buy-now" href="">Mua ngay</a>
                             </div>
+=======
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
                         </div>
                         <div class="item-name item-name-sale">
                             <h3>
@@ -195,7 +245,11 @@
             <ul class="list-cat">
                 @foreach ($product_categories as $product_categories)
                     <li class="item-category">
+<<<<<<< HEAD
                         <img class="category-img" src="{{ asset('img/categories/' . $product_categories->image) }}" alt="">
+=======
+                        <img class="category-img" src="./img/aothun.webp" alt="">
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
                         <div class="detail-cat">
                             <h2 class="category-name">{{$product_categories->name}}</h2>
                             <a href="#"><button>Xem ngay</button></a>
@@ -207,8 +261,13 @@
      </section>
 
      <!-- san pham nổi bật -->
+<<<<<<< HEAD
     <section class="product-new">
         <div style="padding: 0px 7px">
+=======
+    <section class="product-new product-popular">
+        <div style="padding: 0px 7px;">
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
             <h2 class="section-title">Sản phẩm bán chạy</h2>
             <div style="display: flex;align-items: center;gap: 5px; margin-top: 18px;">
                 <a class="see-all" href="/productBestseller" style="color: black; text-decoration: none;">Xem tất cả</a><i
@@ -217,6 +276,7 @@
         </div>
         <div class="grid wide container">
             <div class="row product_featured">
+<<<<<<< HEAD
                 @foreach ($products_bestseller as $products_bestseller)
                     <div class="col l-3 m-6 c-6 ">
                         <div class="item">
@@ -250,14 +310,53 @@
                         </div>
                     </div>
                 @endforeach
+=======
+                <div class="row">
+                    @foreach ($products_bestseller as $products_bestseller)
+                        <div class="col l-3 m-6 c-6 ">
+                            <div class="item">
+                                <div class="item-img">
+                                    <span class="item-giam">-{{ $products_bestseller->sale }}%</span>
+                                    <div class="item-icon">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </div>
+
+                                    <a href="{{asset('/detail/' . $products_bestseller->id)}}">
+                                        <img src="{{ asset($products_bestseller->images->first()->path) }}"
+                                            alt="{{ $products_bestseller->name }}">
+                                    </a>
+                                </div>
+                                <div class="item-name">
+                                    <h3>
+                                        <a href="{{asset('/detail/' . $products_bestseller->id)}}">
+                                            {{ $products_bestseller->name }}
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div class="item-price">
+                                    <span style="color: red;padding-right: 10px;">
+                                        {{ number_format($products_bestseller->price , 0, ',', '.') }}đ
+                                    </span>
+                                    <span><del>{{ number_format($products_bestseller->original_price, 0, ',', '.') }}đ</del></span>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
             </div>
         </div>
     </section>
 
 
     <!-- san pham nổi bật -->
+<<<<<<< HEAD
     <section class="product-new">
         <div style="padding: 0px 7px">
+=======
+    <section class="product-new product-popular">
+        <div style="padding: 0px 7px;">
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
             <h2 class="section-title">Sản phẩm nổi bật</h2>
             <div style="display: flex;align-items: center;gap: 5px; margin-top: 18px;">
                 <a class="see-all" href="/productFeatured" style="color: black; text-decoration: none;">Xem tất cả</a><i
@@ -266,6 +365,7 @@
         </div>
         <div class="grid wide container">
             <div class="row product_featured">
+<<<<<<< HEAD
                 @foreach ($products_is_featured as $products_is_featured)
                     <div class="col l-3 m-6 c-6 ">
                         <div class="item">
@@ -299,6 +399,40 @@
                         </div>
                     </div>
                 @endforeach
+=======
+                <div class="row">
+                    @foreach ($products_is_featured as $products_is_featured)
+                        <div class="col l-3 m-6 c-6 ">
+                            <div class="item">
+                                <div class="item-img">
+                                    <span class="item-giam">-{{ $products_is_featured->sale }}%</span>
+                                    <div class="item-icon">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </div>
+
+                                    <a href="{{asset('/detail/' . $products_is_featured->id)}}">
+                                        <img src="{{ asset($products_is_featured->images->first()->path) }}"
+                                            alt="{{ $products_is_featured->name }}">
+                                    </a>
+                                </div>
+                                <div class="item-name">
+                                    <h3>
+                                        <a href="{{asset('/detail/' . $products_is_featured->id)}}">
+                                            {{ $products_is_featured->name }}
+                                        </a>
+                                    </h3>
+                                </div>
+                                <div class="item-price">
+                                    <span style="color: red;padding-right: 10px;">
+                                        {{ number_format($products_is_featured->price , 0, ',', '.') }}đ
+                                    </span>
+                                    <span><del>{{ number_format($products_is_featured->original_price, 0, ',', '.') }}đ</del></span>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
             </div>
         </div>
     </section>
@@ -346,9 +480,12 @@
                                     <a href="{{asset('/detail/'. $product->id)}}">
                                         <img src="{{ asset($product->images->first()->path) }}" alt="{{ $product->name }}">
                                     </a>
+<<<<<<< HEAD
                                     <div class="item-buy-now">
                                         <a class="a-buy-now" href="">Mua ngay</a>
                                     </div>
+=======
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
                                 </div>
                                 <div class="item-name">
                                     <h3>
@@ -436,7 +573,13 @@
         </div>
 
         <div class="row">
+<<<<<<< HEAD
             @foreach ($news as $news)
+=======
+
+            @foreach ($news as $news)
+              
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
                 <div class="col l-4 m-6 c-12">
                     <div class="post-item">
                         <div class="post-img">

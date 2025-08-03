@@ -220,6 +220,10 @@
         const hourEl = document.querySelector('.time-hour');
         const minuteEl = document.querySelector('.time-minute');
         const secondEl = document.querySelector('.time-second');
+<<<<<<< HEAD
+=======
+        const saleSection = document.querySelector('.product-sale');
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
 
         let hours = parseInt(hourEl?.textContent || 0);
         let minutes = parseInt(minuteEl?.textContent || 0);
@@ -229,6 +233,10 @@
         function updateCountdown() {
             if (totalSeconds <= 0) {
                 clearInterval(countdown);
+<<<<<<< HEAD
+=======
+            //     if (saleSection) saleSection.style.display = 'none';
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
                 return;
             }
 
@@ -242,9 +250,52 @@
             if (secondEl) secondEl.textContent = s.toString().padStart(2, '0');
         }
 
+<<<<<<< HEAD
         const countdown = setInterval(updateCountdown, 1000);
 
         //chặn gửi form khi chưa nhập từ khóa
+=======
+        function updateCountdown() {
+            let hour = parseInt(document.getElementById("countdown-hour").textContent);
+            let minute = parseInt(document.getElementById("countdown-minute").textContent);
+            let second = parseInt(document.getElementById("countdown-second").textContent);
+
+            if (hour === 0 && minute === 0 && second === 0) {
+                document.getElementById("countdown-label").style.display = "none";
+                document.getElementById("flash-sale-start").style.display = "block";
+                return;
+            }
+
+            // Giảm giây
+            if (second > 0) {
+                second--;
+            } else {
+                if (minute > 0) {
+                    minute--;
+                    second = 59;
+                } else if (hour > 0) {
+                    hour--;
+                    minute = 59;
+                    second = 59;
+                } else {
+                    second = 0;
+                }
+            }
+
+            document.getElementById("countdown-hour").textContent = hour.toString().padStart(2, '0');
+            document.getElementById("countdown-minute").textContent = minute.toString().padStart(2, '0');
+            document.getElementById("countdown-second").textContent = second.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+
+
+
+
+        const countdown = setInterval(updateCountdown, 1000);
+
+        //chặn gửi phom khi chưa nhập từ khóa
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
         document.getElementById('search-form').addEventListener('submit', function (e) {
             const input = document.getElementById('search-input');
             const keyword = input.value.trim();
@@ -256,7 +307,10 @@
         });
     </script>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
     {{-- cuar sp moi --}}
     <script>
         const tabs = document.querySelectorAll('.tab');

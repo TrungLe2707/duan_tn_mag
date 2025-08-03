@@ -604,10 +604,14 @@
                 background-color: #334155;
                 color: #fff;
             }
+<<<<<<< HEAD
                 textarea, input, select {
                     width:15% !important ;
 
                 }
+=======
+                
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
                 button:disabled {
             opacity: 0.6;
             cursor: not-allowed;

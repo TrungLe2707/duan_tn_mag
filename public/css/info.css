@@ -32,12 +32,20 @@
         }
 
         .user-info-sidebar {
+<<<<<<< HEAD
             width: 250px;
+=======
+            /* width: 250px; */
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
             background: var(--user-info-white);
             border-radius: var(--user-info-border-radius);
             box-shadow: var(--user-info-box-shadow);
             border: 1px solid var(--user-info-light-gray);
             padding: 1rem;
+<<<<<<< HEAD
+=======
+            height: 100%;
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
         }
 
         .user-info-sidebar ul {
@@ -258,11 +266,14 @@
             gap: 1rem;
         }
 
+<<<<<<< HEAD
         @media (min-width: 768px) {
             .user-info-orders-list {
                 grid-template-columns: 1fr 1fr;
             }
         }
+=======
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
 
         .user-info-order-item {
             border: 1px solid var(--user-info-light-gray);
@@ -717,6 +728,7 @@
                 justify-content: center;
             }
         }
+<<<<<<< HEAD
 
 
         .status-gray    { background-color: #adb5bd; color: #fff; }     /* Chờ xác nhận */
@@ -746,3 +758,5 @@
 }
 
 
+=======
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03

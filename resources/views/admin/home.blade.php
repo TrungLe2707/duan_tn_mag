@@ -186,6 +186,7 @@
                             <th>Trạng thái</th>
                         </tr>
                     </thead>
+<<<<<<< HEAD
                     @foreach ($donhangganday as $donhangganday)
                         <tbody>
                             <tr>
@@ -200,6 +201,23 @@
                             </tr>
                         </tbody>
                     @endforeach
+=======
+                <tbody>
+    @foreach ($donhangganday as $don)
+        <tr>
+            <td>#DH-{{ $don->id }}</td>
+            <td>{{ $don->user?->name ??  $don->address?->receiver_name}}</td>
+            <td>{{ number_format($don->total_price, 0, ',', '.') }}đ</td>
+            <td>
+                <span class="aindex-status-badge aindex-status-active">
+                    {{ $don->status }}
+                </span>
+            </td>
+        </tr>
+    @endforeach
+</tbody>
+
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
 
                 </table>
             </div>

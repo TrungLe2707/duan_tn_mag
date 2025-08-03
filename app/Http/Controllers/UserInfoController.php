@@ -165,7 +165,11 @@ class UserInFoController extends Controller
 
 
 
+<<<<<<< HEAD
     // order
+=======
+    // order 
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
     public function Showorder($id)
     {
         $user = Auth::user();
@@ -188,6 +192,7 @@ class UserInFoController extends Controller
         ];
         return view('info_ctdh', $data);
     }
+<<<<<<< HEAD
 
     public function Kiem_tra_login()
     {
@@ -197,4 +202,6 @@ class UserInFoController extends Controller
             return redirect()->route('showlogin');
         }
     }
+=======
+>>>>>>> 502fab33ec1a3ef13986297172dcfab8924c3e03
 }
